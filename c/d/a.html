@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>นายบัญชา  แสนนา (เดฟ)</title>
+</head>
+
+<body>
+<h1>นายบัญชา  แสนนา (เดฟ)</h1>
+<hr>
+<h1>การสร้างฟอร์มรับข้อมูล</h1>
+
+<form method="post" action="" enctype="multipart/form-data">
+คำนำหน้าชื่อ 
+<input type="radio" name="Title" value="นาย" checked>นาย
+<input type="radio" name="Title" value="นาง">นาง
+ <input type="radio" name="Title" value="นางสาว">นางสาว<br>
+<br>
+ชื่อ - นามสกุล  * <input type="text" autofocus required> <br>
+<br>
+วันเดือนปีเกิด    <input type="date" name="Birthday">   <br>
+<br>
+อายุ * <input type="number" name="age" required min="1" max="10"><br> 
+<br>
+สีที่ชอบ <input type="color" name="color"><br>
+<br>
+ที่อยู่ <br>
+<textarea name="adress" cols="40" rows="1"></textarea><br>
+<br>
+อาชีพ <select name="career">
+<option value="นิสิตนักศึกษา">นิสิต/นักศึกษา</option>
+<option value="รับจ้างทั่วไป">รับจ้างทั่วไป</option>
+<option value="เกษตรกร">เกษตรกร</option>
+<option value="ธุรกิจส่วนตัว">ธุรกิจส่วนตัว</option>
+</select>
+<br>
+<br>
+อาหารที่ชอบ <br>
+<input type="checkbox" name="food[]" value="ผัดกะเพรา">ผัดกะเพรา
+ <input type="checkbox" name="food[]" value="ผัดไท">ผัดไท
+ <input type="checkbox" name="food[]" value="ผัดเปรี้ยวหวาน">ผัดเปรี้ยวหวาน
+ <input type="checkbox" name="food[]" value="ผัดพริกแกง">ผัดพริกแกง
+<br>
+
+<br>
+<!--<input type="submit" value="ลงทะเบียน">-->
+<button type="submit">ลงทะเบียน</button>
+<button type="reset">Reset</button>
+<button type="button" onClick="window.print();">พิมพ์หน้านี้</button>
+<!--<button type="button" onMouseOver="window.print()">พิมพ์</button>
+<button type="button" onMouseOver="alert('สวัสดีจ้า')">ห้ามกด</button>-->
+<button type="button" onClick="window.location='https://www.msu.ac.th'">ไป MSU</button>
+
+
+
+</form>
+</body>
+</html>

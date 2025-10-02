@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สมัครสมาชิก - SLEEP D</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2 class="mb-4">สมัครสมาชิกกับ SLEEP D</h2>
+  <form>
+
+    <!-- ชื่อเต็ม -->
+    <div class="mb-3">
+      <label for="fullname" class="form-label">ชื่อ-นามสกุล</label>
+      <input type="text" class="form-control" id="fullname" name="fullname" required>
+    </div>
+
+    <!-- อีเมล -->
+    <div class="mb-3">
+      <label for="email" class="form-label">อีเมล</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+
+    <!-- รหัสผ่าน -->
+    <div class="mb-3">
+      <label for="password" class="form-label">รหัสผ่าน</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+
+    <!-- เบอร์โทร -->
+    <div class="mb-3">
+      <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+      <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" required>
+    </div>
+
+    <!-- วันเกิด -->
+    <div class="mb-3">
+      <label for="birthdate" class="form-label">วันเกิด</label>
+      <input type="date" class="form-control" id="birthdate" name="birthdate">
+    </div>
+
+    <!-- เพศ -->
+    <div class="mb-3">
+      <label class="form-label">เพศ</label>
+      <select class="form-select" name="gender">
+        <option value="">-- กรุณาเลือก --</option>
+        <option value="male">ชาย</option>
+        <option value="female">หญิง</option>
+        <option value="other">อื่น ๆ</option>
+      </select>
+    </div>
+
+    <!-- อาชีพ -->
+    <div class="mb-3">
+      <label for="occupation" class="form-label">อาชีพ</label>
+      <select class="form-select" id="occupation" name="occupation" onchange="toggleOtherOccupation(this.value)">
+        <option value="">-- กรุณาเลือกอาชีพ --</option>
+        <option value="พนักงานบริษัท">พนักงานบริษัท</option>
+        <option value="เจ้าของกิจการ">เจ้าของกิจการ</option>
+        <option value="ข้าราชการ">ข้าราชการ</option>
+        <option value="นักเรียน/นักศึกษา">นักเรียน/นักศึกษา</option>
+        <option value="ฟรีแลนซ์">ฟรีแลนซ์</option>
+        <option value="อื่น ๆ">อื่น ๆ</option>
+      </select>
+    </div>
+
+    <!-- ระบุอาชีพอื่น ๆ -->
+    <div class="mb-3 d-none" id="other-occupation-container">
+      <label for="otherOccupation" class="form-label">ระบุอาชีพ</label>
+      <input type="text" class="form-control" id="otherOccupation" name="otherOccupation">
+    </div>
+
+    <!-- ที่อยู่ -->
+    <div class="mb-3">
+      <label for="address" class="form-label">ที่อยู่</label>
+      <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+    </div>
+
+    <!-- เว็บไซต์ส่วนตัว -->
+    <div class="mb-3">
+      <label for="website" class="form-label">เว็บไซต์ส่วนตัว</label>
+      <input type="url" class="form-control" id="website" name="website">
+    </div>
+
+    <!-- สีโปรด -->
+    <div class="mb-3">
+      <label for="favoriteColor" class="form-label">สีโปรด</label>
+      <input type="color" class="form-control form-control-color" id="favoriteColor" name="favoriteColor" value="#563d7c" title="เลือกสี">
+    </div>
+
+    <!-- รูปโปรไฟล์ -->
+    <div class="mb-3">
+      <label for="profilePic" class="form-label">อัปโหลดรูปโปรไฟล์</label>
+      <input type="file" class="form-control" id="profilePic" name="profilePic" accept="image/*">
+    </div>
+
+    <!-- ความพึงพอใจ -->
+    <div class="mb-3">
+      <label for="satisfaction" class="form-label">ความพึงพอใจในที่นอนปัจจุบัน</label>
+      <input type="range" class="form-range" id="satisfaction" name="satisfaction" min="0" max="10">
+    </div>
+
+    <!-- เวลาสะดวกติดต่อ -->
+    <div class="mb-3">
+      <label for="contactTime" class="form-label">เวลาที่สะดวกให้ติดต่อ</label>
+      <input type="time" class="form-control" id="contactTime" name="contactTime">
+    </div>
+
+    <!-- เงื่อนไข -->
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" value="" id="terms" required>
+      <label class="form-check-label" for="terms">
+        ฉันยอมรับเงื่อนไขการใช้งาน
+      </label>
+    </div>
+
+    <!-- ปุ่ม -->
+    <button type="submit" class="btn btn-primary">สมัครสมาชิก</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JS toggle อาชีพอื่น ๆ -->
+<script>
+  function toggleOtherOccupation(value) {
+    const otherContainer = document.getElementById('other-occupation-container');
+    if (value === "อื่น ๆ") {
+      otherContainer.classList.remove('d-none');
+    } else {
+      otherContainer.classList.add('d-none');
+      document.getElementById('otherOccupation').value = '';
+    }
+  }
+</script>
+
+</body>
+</html>
